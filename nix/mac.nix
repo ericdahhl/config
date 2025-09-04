@@ -18,6 +18,11 @@ in
     coreutils gnugrep gnu-sed # GNU tools on macOS
   ];
 
+  imports = [
+    ../modules/neovim.nix
+    ../modules/tmux.nix
+  ];
+
   programs.zsh.enable = true;
   programs.fzf.enable = true;
   programs.git = {

@@ -15,6 +15,11 @@
     direnv nix-direnv
   ];
 
+  imports = [
+    ../modules/neovim.nix
+    ../modules/tmux.nix
+  ];
+
   programs.zsh.enable = true;
   programs.fzf.enable = true;
   programs.git = {
