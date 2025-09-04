@@ -2,13 +2,14 @@
   description = "Eric's dev environment (macOS & Linux)";
 
   inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs/nixos-24.05"; # pin for reproducibility
-    home-manager.url = "github:nix-community/home-manager/release-24.05";
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-25.05"; # pin for reproducibility
+    home-manager.url = "github:nix-community/home-manager/release-25.05";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
     # Optional: enable nix-darwin for macOS system integration
     nix-darwin.url = "github:LnL7/nix-darwin";
     nix-darwin.inputs.nixpkgs.follows = "nixpkgs";
+
   };
 
   outputs = { self, nixpkgs, home-manager, nix-darwin, ... }:
@@ -23,10 +24,10 @@
   {
     # Home Manager configs (works on both macOS and Linux)
     homeConfigurations."eric-linux" =
-      mkHome { system = "x86_64-linux"; username = "eric"; homeModule = ./linux.nix; };
+      mkHome { system = "x86_64-linux"; username = "eric"; homeModule = ./nix/linux.nix; };
 
     homeConfigurations."eric-mac" =
-      mkHome { system = "aarch64-darwin"; username = "eric"; homeModule = ./mac.nix; };
+      mkHome { system = "aarch64-darwin"; username = "eric"; homeModule = ./nix/mac.nix; };
 
     # Optional: full macOS system config (nix-darwin)
     darwinConfigurations."erics-mac" = nix-darwin.lib.darwinSystem {

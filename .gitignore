@@ -1,0 +1,18 @@
+# Nix & build outputs
+result
+result-*
+.nix-*
+
+# Direnv
+.direnv/
+.envrc.local
+
+# OS/editor cruft
+.DS_Store
+Thumbs.db
+*.iml
+
+# Secrets (keep these out or use sops-nix)
+secrets.nix
+*.secret.nix
+

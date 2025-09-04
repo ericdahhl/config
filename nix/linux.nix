@@ -7,7 +7,7 @@
 
   # Packages you want globally for your user:
   home.packages = with pkgs; [
-    git fzf ripgrep jq yq tmux neovim
+    git fzf ripgrep jq yq
     awscli2
     python313
     go_1_23
@@ -16,8 +16,8 @@
   ];
 
   imports = [
-    ../modules/neovim.nix
-    ../modules/tmux.nix
+    ./modules/neovim.nix
+    ./modules/tmux.nix
   ];
 
   programs.zsh.enable = true;
