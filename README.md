@@ -1,5 +1,16 @@
 # The setup
 
+## Install nix
+
+```bash
+# Recommended: multi-user (daemon) install
+sh <(curl -L https://nixos.org/nix/install) --daemon
+```
+Restart shell and verify
+```bash
+nix --version
+nix --extra-experimental-features 'nix-command flakes' --version
+```
 ## Bootstrap
 ```bash
 cd nix
