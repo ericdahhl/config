@@ -13,7 +13,7 @@ nix --extra-experimental-features 'nix-command flakes' --version
 ```
 ## Bootstrap
 ```bash
-home-manager switch --flake .#eric-mac  # or .#eric-linux if on linux
+nix run --experimental-features 'nix-command flakes' home-manager/master -- switch --flake .#eric-mac --extra-experimental-features 'nix-command flakes' # or .#eric-linux if on linux
 ```
 
 ## Daily use
