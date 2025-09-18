@@ -3,27 +3,34 @@ let
   isDarwin = pkgs.stdenv.isDarwin;
 in
 {
-  home.username = "eric";
-  home.homeDirectory = "/Users/eric";
+  home.username = "eric.dahlgren";
+  home.homeDirectory = "/Users/eric.dahlgren";
   programs.home-manager.enable = true;
 
   home.packages = with pkgs; [
-    git fzf ripgrep jq yq tmux neovim
+    git fzf ripgrep jq yq
     awscli2
     python313
     go_1_23
     nodejs_22 pnpm
     direnv nix-direnv
-  ] ++ lib.optionals isDarwin [
-    coreutils gnugrep gnu-sed # GNU tools on macOS
+    terraform kubernetes-helm kubectl
   ];
 
   imports = [
-    ../modules/neovim.nix
-    ../modules/tmux.nix
+    ./modules/neovim.nix
+    ./modules/tmux.nix
   ];
 
-  programs.zsh.enable = true;
+  programs.zsh = {
+    enable = true;
+    oh-my-zsh = {
+      enable = true;
+      plugins = ["git"];
+      theme = "robbyrussell";
+    };
+  };
+
   programs.fzf.enable = true;
   programs.git = {
     enable = true;
