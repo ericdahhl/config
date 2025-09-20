@@ -25,6 +25,21 @@ in
 
   programs.zsh = {
     enable = true;
+
+    initContent = ''
+      bindkey -v
+    '';
+    enableCompletion = true;
+
+    autosuggestion = {
+      enable = true;
+      # strategy = [ "history" "completion" ];
+    };
+
+    syntaxHighlighting = {
+      enable = true;
+    };
+
     oh-my-zsh = {
       enable = true;
       plugins = ["git"];
