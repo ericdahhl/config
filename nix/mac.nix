@@ -8,7 +8,7 @@ in
   programs.home-manager.enable = true;
 
   home.packages = with pkgs; [
-    git fzf ripgrep jq yq
+    git fzf ripgrep jq yq bat
     awscli2
     python313
     go_1_23
