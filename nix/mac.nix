@@ -15,6 +15,7 @@ in
     nodejs_22 pnpm
     direnv nix-direnv
     terraform kubernetes-helm kubectl
+    kubectx
   ];
 
   imports = [
