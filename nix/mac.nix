@@ -14,8 +14,8 @@ in
     go_1_23
     nodejs_22 pnpm
     direnv nix-direnv
-    terraform kubernetes-helm kubectl
-    kubectx
+    terraform kubernetes-helm kubectl kubectx
+    colima docker docker-compose
   ];
 
   imports = [
@@ -28,6 +28,8 @@ in
 
     initContent = ''
       bindkey -v
+      bindkey '^P' up-line-or-history   # Ctrl+p → previous history
+      bindkey '^N' down-line-or-history # Ctrl+n → next history
     '';
     enableCompletion = true;
 
@@ -47,6 +49,7 @@ in
     };
   };
 
+  xdg.configFile."bat".source = ../dotfiles/bat;
   programs.fzf.enable = true;
   programs.git = {
     enable = true;
